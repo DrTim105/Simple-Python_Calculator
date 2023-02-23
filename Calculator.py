@@ -1,6 +1,7 @@
 import re
 
 def solve_operation(operation):
+    # split the string into numbers and letters
     values = re.split('(\d+)', operation)
     if (len(values) == 5):
         val1 = float(values[1])
@@ -10,7 +11,6 @@ def solve_operation(operation):
         print(IndexError)
         return ("Program can only solve operations between two (2) numbers")
         
-    
     if (op == "+"):
         return val1 + val2
     elif (op == "-"):
@@ -28,8 +28,8 @@ print("""Welcome to a simple calculator program.
 This program recieves a simple arithmetic operations involving ONLY 2 numbers and returns the result.
 The arithmetic operations supported include '+', '-', '*', '/' """)
 
-operation = input("Enter your operation: ")
+operation = input("Enter your operation or enter e to exit: ")
 
-print(solve_operation(operation))
-
-
+while (operation !=  "e"):
+    print(solve_operation(operation))
+    operation = input("Enter your operation or enter e to exit: ")
